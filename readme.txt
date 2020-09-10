@@ -24,3 +24,5 @@ go to git master branch
 authentication using passport js
 npm install passport
 npm install passport-local
+
+npm install express-session
