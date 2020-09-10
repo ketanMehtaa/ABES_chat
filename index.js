@@ -1,10 +1,12 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
- // by default website run on port 80
-const port = 8000;                                               
+
+// by default website run on port 80
+const port = 8000;
+
 const expressLayouts = require('express-ejs-layouts');
-const db=require('./config/mongoose');
+const db = require('./config/mongoose');
 
 const session = require('express-session');
 const passport = require('passport');
@@ -12,8 +14,10 @@ const passportLocal = require('./config/passport-local-strategy');
 
 app.use(express.urlencoded());
 app.use(cookieParser());
+
 // this will help in accessing the static css and other files
 app.use(express.static('./assets'));
+
 // we have to include expresslayouts before route 
 // because we need layout before route
 
@@ -21,13 +25,11 @@ app.use(expressLayouts);
 
 //extract style and scripts from sub pages into the layout
 app.set('layout extractStyles', true);
-app.set('layout extractScripts',true);
-
-
+app.set('layout extractScripts', true);
 
 // set up the view engine
-app.set('view engine','ejs');
-app.set('views','./views');
+app.set('view engine', 'ejs');
+app.set('views', './views');
 
 app.use(session({
     name: 'codial',
@@ -35,19 +37,21 @@ app.use(session({
     secret: 'blahsomething',
     saveUninitialized: false,
     resave: false,
-    cookie:{
-        maxAge:(1000*60*100)
+    cookie: {
+        maxAge: (1000 * 60 * 100)
     }
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-//use express router
-app.use('/',require('./routes'));
+app.use(passport.setAuthenticatedUser);
 
-app.listen(port,function(err){
-    if(err)
+//use express router
+app.use('/', require('./routes'));
+
+app.listen(port, function (err) {
+    if (err)
         console.log(`Error in running the server : ${err}`);
     console.log(`server is running on port: ${port}`);
 });
