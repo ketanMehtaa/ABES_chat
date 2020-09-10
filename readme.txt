@@ -17,3 +17,10 @@ npm install express-ejs-layouts
 
 install cookie parser
 npm install cookie-parser
+
+now do manual local authentication on another branch and then after doing work on it 
+go to git master branch
+
+authentication using passport js
+npm install passport
+npm install passport-local
