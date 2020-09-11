@@ -26,3 +26,5 @@ npm install passport
 npm install passport-local
 
 npm install express-session
+
+npm install node-sass-middleware
