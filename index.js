@@ -60,7 +60,6 @@ app.use(session({
             console.log(err || 'connect-mongodb setup ok');
         }
     )
-
 }));
 
 app.use(passport.initialize());

@@ -1,12 +1,10 @@
-<html>
-    <head>
-        <title>
-            <%= title %>
-        </title>
-    </head>
+<h1>codeial</h1>
 
-    <body>
-        
-        <h1>codeial</h1>
-    </body>
-</html>
+<section id="feed-post">
+    <h4>
+        <form action="/posts/create" id="new-post-form" method="POST">
+            <textarea name="content" cols="30" rows="3" placeholder="type here...."></textarea>
+            <input type="submit" value="Post">
+        </form>
+    </h4>
+</section>
