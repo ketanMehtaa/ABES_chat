@@ -1,0 +1,15 @@
+.headflex {
+  display: flex;
+  background-color: #206dd1;
+  justify-content: flex-end;
+  height: 40px;
+  color: white; }
+
+ul {
+  color: white; }
+  ul p {
+    margin-right: auto; }
+  ul li a {
+    color: white;
+    text-align: center;
+    vertical-align: bottom; }
