@@ -19,7 +19,7 @@ module.exports.destroy = function (req, res) {
 
         if (post.user == req.user.id) {
             post.remove();
-            post.save();
+            // post.save();
 
             Comment.deleteMany({
                 post: req.params.id
