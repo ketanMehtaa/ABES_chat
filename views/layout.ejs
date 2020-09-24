@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <title>
         <%= title %>
@@ -9,15 +10,21 @@
     <link rel="stylesheet" href="/css/footer.css">
 
     <%- style %>
+
 <body>
 
     <%- include('_header');%>
-
+    <%if(flash.success && flash.success.length > 0) {%>
+        <h5>
+            <%= flash.success %>
+        </h5>
+    <% } %>
         <%- body %>
-    
+
     <%- include('_footer');%>
 
     <%- script %>
 
 </body>
+
 </html>
