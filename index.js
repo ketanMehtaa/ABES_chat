@@ -1,11 +1,11 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const app = express();  
+const app = express();
 
 // by default website run on port 80
 const port = 8000;
 
-const expressLayouts = require('express-ejs-layouts');  
+const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 
 const session = require('express-session');
@@ -63,7 +63,7 @@ app.use(session({
 }));
 
 app.use(passport.initialize());
-app.use(passport.session());    
+app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
 
