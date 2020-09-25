@@ -40,8 +40,19 @@ module.exports.create = async function (req, res) {
             content: req.body.content,
             user: req.user._id
         });
+        
+        if(req.xhr){
+            return res.status(200).json({
+                data:{
+                    post:post
+                },
+                message: "post created"
+            })
+        }
+        req.flash('success','post created Successfully');
         return res.redirect('back');
     } catch (err) {
+        req.flash('error','post not created ');
         console.log('error in creating a post');
         return;
     }
@@ -58,8 +69,10 @@ module.exports.destroy = async function (req, res) {
             await Comment.deleteMany({
                 post: req.params.id
             });
+            req.flash('success','post deleted Successfully');
             return res.redirect('back');
         } else {
+            req.flash('error','post deleted unSuccessfully');
             return res.redirect('back');
         }
     } catch (err) {
