@@ -36,7 +36,7 @@
 <!-- CHANGE import the script file for toggle likes, also run it over for the already present posts and comment on the page -->
 <script src="js/toggle_likes.js"></script>
 <script>
-   $('.toggle-like-button').each(function(){
+   $('.toggle-like-button').each(function () {
       let self = this;
       let toggleLike = new ToggleLike(self);
    });
@@ -44,7 +44,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js"></script>
 <script src="/js/chat_engine.js"></script>
 <% if(locals.user) { %>
-   <script>
-      new ChatEngine('user-chat-box','<%= locals.user.email %>')
-   </script>
+<script>
+   new ChatEngine('user-chat-box', '<%= locals.user.email %>')
+</script>
 <% } %>
