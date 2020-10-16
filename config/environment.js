@@ -60,4 +60,4 @@ const production = {
     }
 }
 // npm install -g win-node-env use this to run the ===== npm run prod_start
-module.exports = development;
+module.exports = eval(process.env.CODEIAL_ENVIRONMENT) == undefined ? development : eval(process.env.CODEIAL_ENVIRONMENT);;
